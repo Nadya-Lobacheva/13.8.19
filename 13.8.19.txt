@@ -1,0 +1,23 @@
+# Запрос количества билетов
+num_tickets = int(input("Введите количество билетов: "))
+
+# Инициализация счетчиков
+total_cost = 0
+free_tickets = 0
+
+# Просим пользователя ввести возраст для каждого билета
+for i in range(num_tickets):
+    age = int(input("Введите возраст посетителя: "))
+    if age < 18:
+        free_tickets += 1
+    elif age < 25:
+        total_cost += 990
+    else:
+        total_cost += 1390
+
+# Рассчитываем скидку, если применима
+if num_tickets > 3:
+    total_cost *= 0.9
+
+# Выводим общую стоимость билетов
+print("Общая стоимость билетов:", total_cost + free_tickets * 1390)
